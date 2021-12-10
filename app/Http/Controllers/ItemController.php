@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
-     public function index(Item $item)
+     public function home(Item $item)
      {
-        return $item->get();
+        return view('owner/home');
      }
      
      public function create(Item $item)
