@@ -14,9 +14,6 @@
             <div class="button">
                 <a href="owner/items/create">商品登録</a>
             </div>
-            <div class="price">
-                <a href="/from">問い合わせ確認</a>
-            </div>
             
             
         <div class="logout">[<a href="/login">ログアウト</a>]</div>
