@@ -1,35 +1,40 @@
-<!DOCTYPE HTML>
+@extends('layouts.app')
+
+@section('content')
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <title>ringon.to</title>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>アイテム登録</h1>
-        <form action="/posts" method="POST">
-            @csrf
-            <div class="title">
+        <h1>ringon.to</h1>
+        <form action="/items" method="POST"　enctype="multipart/form-data">
+        @csrf
+            <div class='title'>
                 <h2>商品名</h2>
-                <input type="text" name="ringonto[title]" placeholder="タイトル"/>
+                <input type="text" name="item[title]" placeholder="商品名" value="{{ old('item.title') }}"/>
             </div>
-            <div class="body">
-                <h2>商品詳細</h2>
-                <textarea name="rinognto[body]" placeholder="こちらは○○な商品になっています。"></textarea>
+            <div class='body'>
+                 <h2>商品説明</h2>
+                 <textarea name="item[body]" placeholder="説明" value="{{ old('item.body')}}"></textarea>
             </div>
-            <div class="price">
-                <h2>価格</h2>
-                <input type="text" name="ringonto[price]" placeholder="100万円！！"/>
+            <div class='body'>
+                 <h2>値段</h2>
+                 <textarea name="item[price]" placeholder="100" value="{{ old('item.price')}}"></textarea>
             </div>
-            <div class="tag">
-                <h2>タグ登録</h2>
-                <input type="text" name="ringonto[tag]" placeholder="春、さわやか、かわいい、"/>
+            <div class='body'>
+                 <h2>タグ</h2>
+                 <h2>画像</h2>
+                 <input type="file" name="image">
             </div>
-            <div class="image">
-                <h2>登録画像</h2>
-                
-            </div>
-            <input type="submit" value="保存"/>
+                  <input type="submit" value="保存"/>
         </form>
-        <div class="back">[<a href="/owner">back</a>]</div>
+        <div class='footer'>
+           <a href='/owner'>back</a>
+        </div>
     </body>
 </html>
+@endsection

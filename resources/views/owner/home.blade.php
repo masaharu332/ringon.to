@@ -9,7 +9,7 @@
 
             
             <div class="button">
-                <a href="/items">商品一覧</a>
+                <a href="owner/items">商品一覧</a>
             </div>
             <div class="button">
                 <a href="owner/items/create">商品登録</a>
