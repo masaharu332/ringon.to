@@ -23,4 +23,12 @@ class Item extends Model
     'image_path',
     'image'
 ];
+
+    /**
+     * Itemに紐付いたTagのリスト
+     */
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag');
+    }
 }

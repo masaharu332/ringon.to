@@ -17,6 +17,9 @@
                   <img src="{{ $item->image_path}}" style="width:auto;height:200px;" >
                   <h2 class='title'> {{$item->title}} </h2>
                   <p class='body'> {{$item->body}} </p>
+                  @foreach($item->tags as $item_tag)
+		            <span class="badge badge-pill badge-info">{{$item_tag->name}}</span>
+                  @endforeach
                   <p class='updated_at'> {{$item->updated_at}}</p>
               </div>
         </div>

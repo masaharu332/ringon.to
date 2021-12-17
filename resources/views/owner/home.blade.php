@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content') 
 <!DOCTYPE HTML>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -19,3 +22,4 @@
         <div class="logout">[<a href="/login">ログアウト</a>]</div>
     </body>
 </html>
+@endsection

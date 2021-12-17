@@ -27,6 +27,7 @@
             </div>
             <div class='body'>
                  <h2>タグ</h2>
+                 <textarea name="tag_name" value="{{ old('tag.name')}}"></textarea>
                  <h2>画像</h2>
                  <input type="file" name="image">
             </div>
