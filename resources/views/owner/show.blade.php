@@ -14,7 +14,9 @@
         @csrf
         <div class='items'>
               <div class='item'>
-                  <img src="{{ $item->image_path}}" style="width:auto;height:200px;" >
+                  @foreach($item->photos as $item_photo)
+                  <img src="https://ringonto-bucket.s3.ap-northeast-1.amazonaws.com/{{$item_photo->path}}" style="width:auto;height:200px;" >
+                  @endforeach
                   <h2 class='title'> {{$item->title}} </h2>
                   <p class='body'> {{$item->body}} </p>
                   @foreach($item->tags as $item_tag)

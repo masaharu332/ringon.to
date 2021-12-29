@@ -31,4 +31,9 @@ class Item extends Model
     {
         return $this->belongsToMany('App\Tag');
     }
+    
+    public function photos()
+    {
+        return $this->hasMany('App\ItemPhoto');
+    }
 }

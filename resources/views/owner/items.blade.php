@@ -11,7 +11,9 @@
         <h1>商品</h1>
         @foreach ($items as $item)
          <div class='item'>
-                  <img src="{{ $item->image_path}}" style="width:auto;height:200px;" >
+                  @foreach($item->photos as $item_photo)
+                  <img src="https://ringonto-bucket.s3.ap-northeast-1.amazonaws.com/{{$item_photo->path}}" style="width:auto;height:200px;" >
+                  @endforeach
                   <h2 class='title'>  <a href="items/{{ $item->id }}">{{ $item->title }}</a> </h2>
                   <p class='body'> {{$item->body}} </p>
                   <p class='price'> {{$item->price}} </p>
@@ -20,6 +22,7 @@
                   @endforeach
                   <p class='review'> {{$item->review}} </p>
                   <p class='updated_at'> {{$item->updated_at}}</p>
+                  <p class="edit">[<a href="items/{{ $item->id }}/edit">編集</a>]</p>
          </div>    
          @endforeach
             
