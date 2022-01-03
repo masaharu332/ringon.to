@@ -24,6 +24,7 @@ Route::get('/owner', 'ItemController@home');
 Route::get('/owner/items', 'ItemController@index');
 Route::post('/items', 'ItemController@store');
 Route::put('/items/{item}','ItemController@update');
+Route::delete('/items/{item}', 'ItemController@delete');
 Route::get('/owner/items/create', 'ItemController@create');
 Route::get('/owner/items/{item}', 'ItemController@show');
 Route::get('/owner/items/{item}/edit', 'ItemController@edit');

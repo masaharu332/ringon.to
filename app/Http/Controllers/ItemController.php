@@ -80,7 +80,7 @@ class ItemController extends Controller
         return view('owner/edit')->with(['item' => $item]); 
      }    
      
-     public function update(Request $request, Item $item)
+     public function update(Request $request, Item $item,ItemPhoto $item_photos)
      {
         $input_item = $request['item'];
         
@@ -100,12 +100,25 @@ class ItemController extends Controller
            array_push($tags_id, $tag['id']);
         };
         
-        $image=$request->file('image');
-        $path = Storage::disk('s3')->putfile('item-image', $image,'public');
-        $item->image_path = Storage::disk('s3')->url($path);
+        
+        $images = $request->file('files');
+        if($images != null ){
+             $item->photos()->delete();
+          foreach($images as $image){
+             $path = Storage::disk('s3')->putfile('item-image', $image,'public');
+             $item_photos->path = Storage::disk('s3')->url($path);
+             $item->photos()->create(['path'=> $path]);
+            };
+        };
         
         $item->fill($input_item)->save();
         $item->tags()->sync($tags_id);
         return redirect('owner/items/' . $item->id);
      } 
+     
+    public function delete(Item $item)
+    {
+      $item->delete();
+      return redirect('/');
+    }
 }

@@ -19,6 +19,7 @@
                   @endforeach
                   <h2 class='title'> {{$item->title}} </h2>
                   <p class='body'> {{$item->body}} </p>
+                  <p class='price'>¥ {{$item->price}}</p>
                   @foreach($item->tags as $item_tag)
 		            <span class="badge badge-pill badge-info">{{$item_tag->name}}</span>
                   @endforeach

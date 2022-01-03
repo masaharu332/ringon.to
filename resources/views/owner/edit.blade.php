@@ -30,7 +30,7 @@
                  <h2>タグ</h2>
                  <textarea name="tag_name" value="@foreach($item->tags as $item_tag) {{$item_tag->name}}@endforeach">@foreach($item->tags as $item_tag)#{{$item_tag->name}}@endforeach</textarea>
                  <h2>画像</h2>
-                 <input type="file" name="image" >
+                 <input type="file" multiple  name="files[]" >
             </div>
                  <input type="submit" value="保存" />
         </form>
