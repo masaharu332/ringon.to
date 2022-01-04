@@ -11,7 +11,7 @@
     </head>
     <body>
         <h1>ringon.to</h1>
-        <form action="/items" method="POST"　enctype="multipart/form-data">
+        <form action="/items" enctype="multipart/form-data" method="POST">
         @csrf
             <div class='title'>
                 <h2>商品名</h2>
@@ -29,12 +29,12 @@
                  <h2>タグ</h2>
                  <textarea name="tag_name" value="{{ old('tag.name')}}"></textarea>
                  <h2>画像</h2>
-                 <input type="file" name="image">
+                 <input type="file" multiple name="files[]"/>
             </div>
-                  <input type="submit" value="保存"/>
+                  <input type="submit" value="作成" />
         </form>
         <div class='footer'>
-           <a href='/owner'>back</a>
+           <a href='/owner'>もどる</a>
         </div>
     </body>
 </html>
