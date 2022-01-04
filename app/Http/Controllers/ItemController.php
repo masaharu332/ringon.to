@@ -119,6 +119,6 @@ class ItemController extends Controller
     public function delete(Item $item)
     {
       $item->delete();
-      return redirect('/');
+      return redirect('owner/items');
     }
 }

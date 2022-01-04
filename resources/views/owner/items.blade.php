@@ -22,7 +22,6 @@
                   @endforeach
                   <p class='review'> {{$item->review}} </p>
                   <p class='updated_at'> {{$item->updated_at}}</p>
-                  <p class="edit">[<a href="items/{{ $item->id }}/edit">編集</a>]</p>
          </div>    
          @endforeach
             
