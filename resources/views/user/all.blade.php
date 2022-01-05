@@ -8,9 +8,10 @@
         <title>ringon.to</title>
     </head>
     <body>
-        <h1>商品</h1>
-        @foreach ($items as $item)
-         <div class='item'>
+          <h1>All items</h1> 
+              <div class="item">
+            @foreach($items as $item)
+              <div class='item'>
                   @foreach($item->photos as $item_photo)
                   <img src="https://ringonto-bucket.s3.ap-northeast-1.amazonaws.com/{{$item_photo->path}}" style="width:49%;height:auto;" >
                   @endforeach
@@ -22,13 +23,18 @@
                   @endforeach
                   <p class='review'> {{$item->review}} </p>
                   <p class='updated_at'> {{$item->updated_at}}</p>
-         </div>    
-         @endforeach
-        <div class='paginate'>
+             </div>    
+           @endforeach
+           <div class='paginate'>
                {{ $items->links() }}
-        </div>
+           </div>
+              </div>
+              <div class='footer'>
+                <a href='/user/home'>もどる</a>
+              </div>
             
-        <div class="back">[<a href="/owner">もどる</a>]</div>
+            
+        
     </body>
 </html>
 @endsection

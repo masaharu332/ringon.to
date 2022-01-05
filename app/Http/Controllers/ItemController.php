@@ -19,7 +19,7 @@ class ItemController extends Controller
      
      public function index(Item $item)
      {
-         return view('owner/items')->with(['items' => $item->getByLimit()]);  
+         return view('owner/items')->with(['items' => $item->getPaginateByLimit()]);  
      }
      
      public function show(Item $item, ItemPhoto $item_photos)
@@ -120,5 +120,46 @@ class ItemController extends Controller
     {
       $item->delete();
       return redirect('owner/items');
+    }
+    
+    
+    public function userhome(Item $item)
+    {
+        return view('user/home');
+    }
+    
+    public function userseason(Tag $tag)
+    {
+        $tags=$tag->with('items')->where('name','冬')->get();
+        return view('user/season')->with(['tags'=>$tags]);
+    }
+    
+    public function userpierce(Tag $tag)
+    {
+        $tags=$tag->with('items')->where('name','pierce')->get();
+        return view('user/pierce')->with(['tags'=>$tags]);
+    }
+    
+    public function userearring(Tag $tag)
+    {
+        $tags=$tag->with('items')->where('name','earring')->get();
+        return view('user/earring')->with(['tags'=>$tags]);
+    }
+    
+    public function userring(Tag $tag)
+    {
+        $tags=$tag->with('items')->where('name','ring')->get();
+        return view('user/ring')->with(['tags'=>$tags]);
+    }
+    
+    public function userstand(Tag $tag)
+    {
+        $tags=$tag->with('items')->where('name','stand')->get();
+        return view('user/stand')->with(['tags'=>$tags]);
+    }
+    
+    public function userall(Item $item)
+    {
+        return view('user/all')->with(['items' => $item->getPaginateByLimit()]);
     }
 }
