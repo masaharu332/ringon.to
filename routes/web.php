@@ -28,3 +28,11 @@ Route::get('/owner/items/create', 'ItemController@create');
 Route::get('/owner/items/{item}', 'ItemController@show');
 Route::delete('/owner/items/{item}', 'ItemController@delete');
 Route::get('/owner/items/{item}/edit', 'ItemController@edit');
+
+Route::get('/user/home','ItemController@userhome');
+Route::get('/user/season','ItemController@userseason');
+Route::get('/user/pierce','ItemController@userpierce');
+Route::get('/user/earring','ItemController@userearring');
+Route::get('/user/ring','ItemController@userring');
+Route::get('/user/stand','ItemController@userstand');
+Route::get('/user/all','ItemController@userall');
